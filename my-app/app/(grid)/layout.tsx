@@ -1,4 +1,7 @@
+import ButtonGradient from "../Components/ButtonGradient";
 import GridContainer from "../Components/defaults/GridContainer";
+import MaxWidthWrapper from "../Components/defaults/MaxWidthWrapper";
+import NavBar from "../Components/nav/NavBar";
 import SideBar from "../Components/nav/SideBar";
 
 export default function RootLayout({
@@ -8,9 +11,13 @@ export default function RootLayout({
 }>) {
     return (
         <main className="background grid h-screen">
+            <ButtonGradient />
             <GridContainer cols={12}>
                 <SideBar />
-                <div className="col-span-full lg:col-span-10">{children}</div>
+                <MaxWidthWrapper className="col-span-full lg:col-span-10">
+                    <NavBar />
+                    {children}
+                </MaxWidthWrapper>
             </GridContainer >
         </main>
 
